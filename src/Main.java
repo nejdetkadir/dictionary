@@ -156,6 +156,10 @@ public class Main extends javax.swing.JFrame {
         messageWordSettingsLabel = new javax.swing.JLabel();
         getDataFromExcelButton = new javax.swing.JButton();
         importDataToExcelButton = new javax.swing.JButton();
+        jButton_getFirst = new javax.swing.JButton();
+        jButton_previous = new javax.swing.JButton();
+        jButton_nextTo = new javax.swing.JButton();
+        jButton_last = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         languageComboBox = new javax.swing.JComboBox<>();
@@ -325,7 +329,7 @@ public class Main extends javax.swing.JFrame {
                                 .addComponent(chooseImageButton)
                                 .addGap(61, 61, 61)
                                 .addComponent(imagePreviewLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 123, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(AddButton)
@@ -426,6 +430,34 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jButton_getFirst.setText("İlk");
+        jButton_getFirst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_getFirstActionPerformed(evt);
+            }
+        });
+
+        jButton_previous.setText("Önceki");
+        jButton_previous.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_previousActionPerformed(evt);
+            }
+        });
+
+        jButton_nextTo.setText("Sonraki");
+        jButton_nextTo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_nextToActionPerformed(evt);
+            }
+        });
+
+        jButton_last.setText("Son");
+        jButton_last.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_lastActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -438,10 +470,21 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(messageWordSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(getDataFromExcelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(importDataToExcelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(messageWordSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(getDataFromExcelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(importDataToExcelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton_getFirst, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton_nextTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton_previous, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton_last, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -455,11 +498,18 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(importDataToExcelButton)
                         .addGap(51, 51, 51)
                         .addComponent(messageWordSettingsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_getFirst)
+                            .addComponent(jButton_last))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_nextTo)
+                            .addComponent(jButton_previous)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -945,6 +995,44 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_importDataToExcelButtonActionPerformed
 
+    private void jButton_getFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_getFirstActionPerformed
+        if (WordSettingsTable.getRowCount() > 0) {
+            WordSettingsTable.setRowSelectionInterval(0, 0);
+            setData(0);            
+        }
+    }//GEN-LAST:event_jButton_getFirstActionPerformed
+
+    private void jButton_lastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_lastActionPerformed
+        if (WordSettingsTable.getRowCount() > 0) {
+            WordSettingsTable.setRowSelectionInterval(WordSettingsTable.getRowCount()-1, WordSettingsTable.getRowCount()-1);
+            setData(WordSettingsTable.getRowCount()-1);
+        }
+        
+    }//GEN-LAST:event_jButton_lastActionPerformed
+
+    private void jButton_nextToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextToActionPerformed
+        if (selected_row[0] == -1 && WordSettingsTable.getRowCount() > 0) {
+            WordSettingsTable.setRowSelectionInterval(0, 0);
+            selected_row[0] = 0;
+            setData(selected_row[0]);
+        } else {
+            selected_row[0]++;
+            if (!(selected_row[0] > WordSettingsTable.getRowCount()-1)) {
+                WordSettingsTable.setRowSelectionInterval(selected_row[0], selected_row[0]);
+                setData(selected_row[0]);
+            } 
+        }
+    }//GEN-LAST:event_jButton_nextToActionPerformed
+
+    private void jButton_previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_previousActionPerformed
+         if (!(selected_row[0] <= 0)) {
+            selected_row[0]--;
+            WordSettingsTable.setRowSelectionInterval(selected_row[0], selected_row[0]);
+            setData(selected_row[0]);
+         }
+        
+    }//GEN-LAST:event_jButton_previousActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -981,6 +1069,20 @@ public class Main extends javax.swing.JFrame {
     }
     
     //My Methods
+    
+    public void setData(int row) {
+        if (WordSettingsTable.getRowCount() > 0) {
+            TRTextField.setText(wordArrayList.get(row).getTr());
+            ENTextField.setText(wordArrayList.get(row).getEn());
+            FRTextField.setText(wordArrayList.get(row).getFr());
+            DETextField.setText(wordArrayList.get(row).getDe());
+            imagePreviewLabel.setText("");
+            imagePreviewLabel.setIcon(wordArrayList.get(row).getImageIcon());
+            update_file_status = false;
+        }        
+    }
+    
+    
     void setWordSettingsDataToTable() {
         wordSettingsTM.setRowCount(0);
         wordArrayList = new ArrayList<>();
@@ -1315,6 +1417,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton getDataFromExcelButton;
     private javax.swing.JLabel imagePreviewLabel;
     private javax.swing.JButton importDataToExcelButton;
+    private javax.swing.JButton jButton_getFirst;
+    private javax.swing.JButton jButton_last;
+    private javax.swing.JButton jButton_nextTo;
+    private javax.swing.JButton jButton_previous;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
