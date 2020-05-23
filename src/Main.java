@@ -113,8 +113,7 @@ public class Main extends javax.swing.JFrame {
         imagePreviewLabel.setText(image_label_text);
         //Methods
         setWordSettingsDataToTable();
-        System.out.println(this.getContentPane().getHeight()+ " + " + this.getContentPane().getWidth());
-        
+        selected_row = WordSettingsTable.getSelectedRows();
     }
     
   
@@ -1005,14 +1004,17 @@ public class Main extends javax.swing.JFrame {
     private void jButton_lastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_lastActionPerformed
         if (WordSettingsTable.getRowCount() > 0) {
             WordSettingsTable.setRowSelectionInterval(WordSettingsTable.getRowCount()-1, WordSettingsTable.getRowCount()-1);
+            selected_row = new int[2];
+            selected_row[0] = WordSettingsTable.getRowCount()-1;
             setData(WordSettingsTable.getRowCount()-1);
         }
         
     }//GEN-LAST:event_jButton_lastActionPerformed
 
     private void jButton_nextToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_nextToActionPerformed
-        if (selected_row[0] == -1 && WordSettingsTable.getRowCount() > 0) {
+        if (selected_row.length == 0 && WordSettingsTable.getRowCount() > 0) {
             WordSettingsTable.setRowSelectionInterval(0, 0);
+            selected_row = new int[2];
             selected_row[0] = 0;
             setData(selected_row[0]);
         } else {
@@ -1025,7 +1027,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_nextToActionPerformed
 
     private void jButton_previousActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_previousActionPerformed
-         if (!(selected_row[0] <= 0)) {
+        if (!(selected_row[0] <= 0)) {
             selected_row[0]--;
             WordSettingsTable.setRowSelectionInterval(selected_row[0], selected_row[0]);
             setData(selected_row[0]);
